@@ -1,0 +1,15 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: provider-service
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 5
+    metadata-map:
+      version: 1.0
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+gray:
+  enable: true

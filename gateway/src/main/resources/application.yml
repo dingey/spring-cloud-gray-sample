@@ -1,0 +1,29 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id:  consumer
+          uri: lb://consumer-service
+          predicates:
+          - Path=/consumer/**
+          filters:
+          - StripPrefix=1
+        - id:  provider
+          uri: lb://provider-service
+          predicates:
+          - Path=/provider/**
+          filters:
+          - StripPrefix=1
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+gray:
+  enable: true
+logging:
+  level:
+    com.github.dingey.swagger: debug
