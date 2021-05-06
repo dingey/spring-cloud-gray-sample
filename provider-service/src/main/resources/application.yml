@@ -6,8 +6,8 @@ spring:
 eureka:
   instance:
     lease-renewal-interval-in-seconds: 5
-    metadata-map:
-      version: 1.0
+#    metadata-map:
+#      version: 1.0
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
